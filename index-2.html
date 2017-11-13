@@ -1,0 +1,599 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//KR" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name = "viewport" content = "user-scalable=no, width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>BLUECORE</title>
+
+<script type="text/javascript" src="../wcs.naver.net/wcslog.js"></script> <script type="text/javascript"> if(!wcs_add) var wcs_add = {}; wcs_add["wa"] = "103df0ea5e1b648"; wcs_do(); </script>
+    
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jcarousel.responsive.js"></script>
+    <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script type="text/javascript" src="js/lightbox.js"></script>
+    
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    
+    
+    <!-- animsition.css -->
+    <link rel="stylesheet" href="css/animsition.min.html">
+    <!-- jQuery -->
+    <script src="../ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- animsition.js -->
+    <script src="js/jquery.animsition.min.js"></script>
+    
+    
+    
+    <!-- map -->
+	<script type="text/javascript">
+    function initialize() {
+    
+     var myLatlng = new google.maps.LatLng(37.50962,127.04269);
+     var mapOptions = {
+      zoom: 18,
+      center: myLatlng,
+      disableDefaultUI: true
+     }
+     
+     var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+     
+     
+     // Example standard marker
+     var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Hello World!'
+     });
+     
+    }
+    
+    google.maps.event.addDomListener(window, 'load', initialize);
+    
+    </script>
+    
+    
+	<script>
+		function initialize()
+		{ 
+			var myLatlng = new google.maps.LatLng(37.509679,127.04253);
+			var mapOptions = {
+				zoom: 17, 
+				center: myLatlng, 
+				mapTypeId: google.maps.MapTypeId.ROADMAP 
+			} 
+			var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+			
+			var marker = new google.maps.Marker({ 
+				position: myLatlng, 
+				map: map, 
+				title: "블루코어"}
+			); 
+		}
+	</script>
+    
+    <!-- menu -->
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var menu = $("#top_menu > ul > li"); //메뉴에 변수 menu 할당
+		var contents = $("#contents > div"); //컨텐츠를 변수 contents 할당
+		
+		menu.click(function(event){ //메뉴한테 클릭 이벤트 생성
+			event.preventDefault(); //브라우저 기능 차단
+			
+			var tg = $(this); //클릭된 요소(메뉴)의 타겟을 tg에 할당
+			var i = tg.index(); //클릭된 요소의 index를 i에 할당 
+			var section = contents.eq(i); //컨텐츠 인덱스를  section에 할당
+			
+			var tt = section.offset().top; //각 컨텐츠 top값을 tt에 할당
+			
+			$("html, body").stop().animate({scrollTop:tt});
+		});
+		
+		/*section1.offset().top >= $(window).scrollTop();
+		section2.offset().top >= $(window).scrollTop();
+		section3.offset().top >= $(window).scrollTop();
+		section4.offset().top >= $(window).scrollTop();*/
+		
+		$(window).scroll(function(){
+			var sct = $(window).scrollTop();
+			
+			if(sct >= contents.eq(0).offset().top){
+				menu.removeClass("on");
+				menu.eq(0).addClass("on");
+			}
+			if(sct >= contents.eq(1).offset().top){
+				menu.removeClass("on");
+				menu.eq(1).addClass("on");
+			}
+			if(sct >= contents.eq(2).offset().top){
+				menu.removeClass("on");
+				menu.eq(2).addClass("on");
+			}
+			if(sct >= contents.eq(3).offset().top){
+				menu.removeClass("on");
+				menu.eq(3).addClass("on");
+			}
+			if(sct >= contents.eq(4).offset().top){
+				menu.removeClass("on");
+				menu.eq(4).addClass("on");
+			}
+			if(sct >= contents.eq(5).offset().top){
+				menu.removeClass("on");
+				menu.eq(5).addClass("on");
+			}
+		});
+		
+		
+	});
+	</script>
+    
+    <!-- right_dot -->
+    <script type="text/javascript">
+	$(document).ready(function(){
+		var menu = $(".dot > li");	//메뉴에 변수 menu 할당
+		var contents = $("#contents > div");	//컨텐츠를 변수 contents 할당
+		
+		menu.click(function(event){		//메뉴 클릭 이벤트 생성
+			event.preventDefault();	   //브라우저 기능 차단
+			
+			var tg = $(this);		//클릭된 요소(메뉴)의 타겟을 tg에 할당
+			var i = tg.index();		//클릭된 요소의 index를 i에 할당
+			var section = contents.eq(i);	//컨텐츠 인덱스를 section에 할당
+			
+			var tt = section.offset().top;	//각 컨텐츠 top값을 tt에 할당
+			
+			$("html, body").stop().animate({scrollTop:tt});
+		});
+		
+		/*section1.offset().top >= $(window).scrollTop();
+		section2.offset().top >= $(window).scrollTop();
+		section3.offset().top >= $(window).scrollTop();
+		section4.offset().top >= $(window).scrollTop();*/
+		
+		$(window).scroll(function(){
+			var sct = $(window).scrollTop();
+			
+			if(sct >= contents.eq(0).offset().top){
+				menu.removeClass("on");
+				menu.eq(0).addClass("on");
+			}
+			if(sct >= contents.eq(1).offset().top){
+				menu.removeClass("on");
+				menu.eq(1).addClass("on");
+			}
+			if(sct >= contents.eq(2).offset().top){
+				menu.removeClass("on");
+				menu.eq(2).addClass("on");
+			}
+			if(sct >= contents.eq(3).offset().top){
+				menu.removeClass("on");
+				menu.eq(3).addClass("on");
+			}
+			if(sct >= contents.eq(4).offset().top){
+				menu.removeClass("on");
+				menu.eq(4).addClass("on");
+			}
+			if(sct >= contents.eq(5).offset().top){
+				menu.removeClass("on");
+				menu.eq(5).addClass("on");
+			}
+			
+		});
+		
+	});
+	</script>
+    
+    <!-- main_visual -->
+    <script type="text/javascript">
+$(document).ready(function(){
+		var visual = $("#menu1 > ul > li");
+		var button = $("#buttonList > li");
+		var current = 0;
+		var setIntervalID;
+		
+		button.on({
+			click:function(){
+				var tg = $(this);
+				var i = tg.index();
+				//alert(i);
+				button.removeClass('on');
+				tg.addClass('on');
+				
+				move(i);
+			}
+		});
+		
+		
+		/*$("#wrap").on({ 
+			mouseover:function(){
+				clearInterval(setIntervalID);
+			}, 
+			mouseout:function(){
+				timer();
+			} 
+		});
+		*/
+		
+		
+		timer();
+		function timer(){
+			setIntervalID = setInterval(function(){
+				var n = current + 1;
+				if(n == visual.size()){
+					n = 0;
+				}
+				
+				button.eq(n).trigger('click');
+				
+			},4000);
+		};
+		
+		
+		
+		function move(i){
+			if(current == i) return;
+			
+			var currentE1 = visual.eq(current);
+			var nextE1 = visual.eq(i);
+			
+			currentE1.css({ left:0 }).stop().animate({ left:'-100%' });
+			nextE1.css({ left:'100%' }).stop().animate({ left:0 });
+			
+			current = i;
+			
+		}
+		
+		
+	});
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+    </script>
+    
+    
+	
+</head>
+<body onLoad="MM_preloadImages('images/footer_link_sou_ov.png')">
+  <div id="wrap">
+        <div id="top_menu">
+			<div id="logo"><a href="index-2.html">&nbsp;</a></div>
+            <ul>
+                <li class="on"><a href="#menu1">BLUECORE</a></li>
+                <li><a href="#menu2">INFORMATION</a></li>
+                <li><a href="#menu3">BUSINESS</a></li>
+                <li><a href="#menu4">WORKS</a></li>
+                <li><a href="#menu5">RECRUIT</a></li>
+                <li><a href="#menu6">CONTACT</a></li>
+            </ul>
+		</div>
+        
+        <ul class="dot">
+			<li class="on"><a href="#menu1"></a></li>
+			<li><a href="#menu2"></a></li>
+			<li><a href="#menu3"></a></li>
+			<li><a href="#menu4"></a></li>
+            <li><a href="#menu5"></a></li>
+            <li><a href="#menu6"></a></li>
+		</ul>
+        
+		<div id="contents">
+			<div id="menu1">
+                <ul>
+                    <li class="visual_1"><a href="#"></a></li>
+                    <li class="visual_2"><a href="#"></a></li>
+                    <li class="visual_3"><a href="#"></a></li>
+                </ul>
+            </div>
+            <ul id="buttonList">
+                <li class="on"><a href="#">배너1</a></li>
+                <li><a href="#">배너2</a></li>
+                <li><a href="#">배너3</a></li>
+            </ul>
+            
+            <div id="menu2">
+                <div class="major">
+                    <h2>INFORMATION</h2>
+                    <p>가슴 뛰는 생각을 이야기합니다. 즐기고 나누고 소통합니다. 사람과 세상을 잇는 미래를 만듭니다.</p>
+                </div>
+                <ul>
+                  <li class="info_01">
+                        <h3>ABOUT</h3>
+                    <p>CONVERGENCE와  INNOVATION이라는 비전 아래
+                      창의적이고 혁신적인 서비스를 제공하고 있습니다.</p>
+                      <a href="info_about.html" target="_blank" class="button">바로가기</a>
+                    </li>
+                    <li class="info_02">
+                        <h3>HISTORY</h3>
+                        <p>과거, 현재, 우리가 만들어나가는 지금. 앞으로도 지금까지 보여드린 믿음을 지켜나가도록 노력하겠습니다.</p>
+                        <a href="info_history.html" target="_blank" class="button">바로가기</a>
+                    </li>
+                    <li class="info_03">
+                        <h3>ORGANIZATION</h3>
+                        <p>CREATIVE. PROFESSIONAL. PASSION. 새로운 세상을 이끌어가는 블루코어의 조직구성입니다.</p>
+                        <a href="info_organization.html" target="_blank" class="button">바로가기</a>
+                    </li>
+                    <li class="info_04">
+                        <h3>PARTNER</h3>
+                        <p>최고가 되기 위한 블루코어의 노하우와 기술력은 고객에게 최고의 만족과 서비스 품질을 약속합니다.</p>
+                        <a href="info_partner.html" target="_blank" class="button">바로가기</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div id="menu3">
+                <div>
+                    <h2>BUSINESS</h2>
+                    <p>블루코어는 애플리케이션 제작 및 플랫폼 구축 분야에서의 노하우를 통해 전략기획부터 솔루션 개발에 이르는 통합 맞춤형 조직 시스템을 구축하여 안정적인 서비스 제공을 위해 노력하고 있습니다.</p>
+                </div>
+                <div class="business">
+                    <ul>
+                        
+                        <li>
+                            <a href="business_1.html" target="_blank">
+                            <img src="images/busi_img_01.png" class="bus_img" art="img" border="0">
+                            <h3>SOLUTION DEVELOPMENT</h3>
+                            <p>COMPUTER VISION, SOUND ENGINE, BARCODE / QRCODE 기술의 전문연구 인력과 엔지니어를 보유하고 있으며, 이를 바탕으로 다양하고 전문화된 서비스를 공급하고 있습니다.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="business_2.html" target="_blank">
+                            <img src="images/busi_img_02.png" art="img" border="0">
+                            <h3>PLATFORM OPERATIONS</h3>
+                            <p>이동통신사의 핵심인프라인 SMS, MMS, SPAM FILTERING의 메시징 인프라와 클라우드 플랫폼 구축을 위한 안정적인 운영, 개발 노하우는 대용량 트랜잭션 처리에 있어 빠르고 정확한 성능을 제공합니다.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="business_3.html" target="_blank">
+                            <img src="images/busi_img_03.png" art="img" border="0">
+                            <h3>MOBILE SI</h3>
+                            <p>기업 및 개인의 정보 보호와 모바일 환경에 최적화된 서버기반의 실시간 스트리밍 서비스는 정보보안 및 경영환경 개선의 두가지 목표를 극대화 할 수 있습니다. 
+                            블루코어의 Mobile SI는 언제나 고객에게 최상의 만족도를 드리고 있습니다.</p>
+                            </a>
+                        </li>
+                        </a>
+                    </ul>
+                </div>
+            </div>            
+            
+			<div id="menu4">
+                <div class="wrapper">
+                    <h2>WORKS</h2>
+                    <p>사람을 먼저 생각하는 서비스. 사람 그리고 미래를 채워갑니다. 정직과 믿음을 바탕으로 파트너와 함께 소통하며 미래를 보여드립니다.</p>
+                </div>
+                
+                <div class="works_wrapper">
+                    <div class="jcarousel-wrapper">
+                        <div class="jcarousel">
+                            <ul>
+                                <li><a href="images/work_01.png" data-lightbox="example-set" data-title="<strong>T cloud 3.0 개발</strong> <br> SK플래닛 &nbsp; l &nbsp; 2013 <br> SKP T cloud 3.0 Web, iPhone, iPad 클라이언트 개발"><img src="images/work_01.png" alt="work img"></a></li>                
+                                <li><a href="images/work_02.png" data-lightbox="example-set" data-title="<strong>T cloud 2.0 개발 유지보수</strong> <br> SK플래닛 &nbsp; l &nbsp; 2013 <br> SKP T cloud 2.0 서버 및 클라이언트 고도화 및 유지보수"><img src="images/work_02.png" alt="work img"></a></li>
+                                <li><a href="images/work_03.png" data-lightbox="example-set" data-title="<strong>SMS 서비스인프라 유지보수</strong> <br> KT &nbsp; l &nbsp; 2012, 2013 <br> KT 주요 서비스인 SMS(Short Message Service) 서비스 개발 유지보수"><img src="images/work_03.png" alt="work img"></a></li>
+                                <li><a href="images/work_04.png" data-lightbox="example-set" data-title="<strong>MMSC 개발유지보</strong>수 <br> KT &nbsp; l &nbsp; 2012, 2013 <br> SKP T cloud 2.0 서버 및 클라이언트 고도화 및 유지보수"><img src="images/work_04.png" alt="work img"></a></li>
+                                <li><a href="images/work_05.png" data-lightbox="example-set" data-title="<strong>MSFP 유지보수</strong> <br> KT &nbsp; l &nbsp; 2012, 2013 <br> KT MSFP(Message Spam Filtering Platform) 개발 유지보수"><img src="images/work_05.png" alt="work img"></a></li>
+                                <li><a href="images/work_06.png" data-lightbox="example-set" data-title="<strong>대고객 메시지 통합 발송시스템(nMIMO)</strong> <br> KT &nbsp; l &nbsp; 2013 <br> KT 대고객 메시지 통합 발송시스템(nMIMO) 개발 유지보수"><img src="images/work_06.png" alt="work img"></a></li>
+                                <li><a href="images/work_10.png" data-lightbox="example-set" data-title="<strong>KT Messaging ARS</strong> <br> KT &nbsp; l &nbsp; 2013 <br> KT 문자고객센터 서비스(Messaging ARS Platform) 개발"><img src="images/work_10.png" alt="work img"></a></li>
+                                <li><a href="images/work_12.png" data-lightbox="example-set" data-title="<strong>올레 폰찾고정보보호</strong> <br> KT &nbsp; l &nbsp; 2013, 2014 <br> 스마트폰을 분실했을 경우 위치를 추적하고 개인정보 유출을 방지하며, 백업을 통해 중요 정보를 보호해 주는 서비스입니다. <br> 주요기능 : 현재 상태 확인, 임시잠금 및 분실잠금, 경고음 발생, 위치찾기 및 위치 추적, 사진 촬영-데이터 삭제 및 초기화, 백업 및 복원 (프리미엄 부가서비스 기능)"><img src="images/work_12.png" alt="work img"></a></li>
+                                <li><a href="images/work_13.png" data-lightbox="example-set" data-title="<strong>KT olleh Spam</strong> <br> KT &nbsp; l &nbsp; 2012, 2013 <br> KT Olleh 고객을 대상 스팸문자 차단 애플리케이션 서비스(Android, iPhone)"><img src="images/work_13.png" alt="work img"></a></li>
+                                <li><a href="images/work_07.png" data-lightbox="example-set" data-title="<strong>SoundForest</strong> <br> 블루코어 &nbsp; l &nbsp; 2015 <br> 휴식이나 숙면 또는 업무나 공부를 위한 집중력 향상에 도움을 주는 사운드테라피를 제공합니다. 사운드블렌딩 기능을 통해 자신의 취향에 맞는 다양한 사운드테라피를 만들 수 있으며, 이명환자들을 위한 치료용 mp3 플레이어 기능을 제공하여 이명치료에 도움을 드립니다."><img src="images/work_07.png" alt="work img"></a></li>
+                                <li><a href="images/work_08.png" data-lightbox="example-set" data-title="<strong>SoundForest</strong> <br> 블루코어 &nbsp; l &nbsp; 2013 <br> 사운드 테라피(Sound Therapy)를 통한 모바일 개인화 소리치료 애플리케이션은 사용자의 음원에 대한 데이터를 분석하고 관리하며, 음원 정보 분석 데이터를 통해서 사용자 개개인의 특성에 맞는 음원을 제공하는 서비스입니다."><img src="images/work_08.png" alt="work img"></a></li>
+                                <li><a href="images/work_11.png" data-lightbox="example-set" data-title="<strong>#메일 기반 전자문서 유통 유무선 포털</strong> <br> SK텔레콤 &nbsp; l &nbsp; 2013 <br> SKT #메일을 기반으로한 전자문서 유통을 위한 포털 서비스 개발"><img src="images/work_11.png" alt="work img"></a></li>
+                                <li><a href="images/work_09.png" data-lightbox="example-set" data-title="<strong>자가용 이용실태 조사 서비스</strong> <br> 한국교통연구원 &nbsp; l &nbsp; 2013 <br> 한국교통연구원 국내 자가용 이용자 실태 조사 애플리케이션은 모바일 환경에서 스마트폰을 이용하여 자가용 운행 기록을 수집하고, 수집된 데이터를 이용하여 통계 및 교통부문 DB구축 등 다양한 부문에 활용할 수 있도록 구축된 서비스입니다."><img src="images/work_09.png" alt="work img"></a></li>
+                                <li><a href="images/work_20.png" data-lightbox="example-set" data-title="<strong>Ucloud PC Client 개발</strong> <br> KT &nbsp; l &nbsp; 2012 <br> KT 클라우드 서비스(Ucloud) PC Client 개발"><img src="images/work_20.png" alt="work img"></a></li>
+                                <li><a href="images/work_14.png" data-lightbox="example-set" data-title="<strong>K-Collection</strong> <br> SBS &nbsp; l &nbsp; 2012 <br> SBS K-Collection in Seoul은 K-POP 스타, 모델, IT, 패션쇼가 결합된 엔터테인먼트 형식의 초대형 이벤트로 개발"><img src="images/work_14.png" alt="work img"></a></li>
+                                <li><a href="images/work_15.png" data-lightbox="example-set" data-title="<strong>전자문서 비즈니스 모델 시범사업</strong> <br> 정보통신산업진흥원 &nbsp; l &nbsp; 2013 <br> NIPA 전자문서 비즈니스 모델 시범사업으로 #메일을 기반으로한 전자문서 유통 포털 서비스 개발"><img src="images/work_15.png" alt="work img"></a></li>
+                                <li><a href="images/work_16.png" data-lightbox="example-set" data-title="<strong>KISA PhoneKeeper</strong> <br> 한국인터넷진흥원 &nbsp; l &nbsp; 2012 <br> 국내 Android 사용자를 위한 편리하고 안전한 보안 설정 애플리케이션"><img src="images/work_16.png" alt="work img"></a></li>
+                                <li><a href="images/work_17.png" data-lightbox="example-set" data-title="<strong>Coreview</strong> <br> 블루코어 &nbsp; l &nbsp; 2012 <br> 모바일 환경에서 안전하게 문서를 유통할 수 있는 통한 문서 스트리밍 솔루션"><img src="images/work_17.png" alt="work img"></a></li>
+                                <li><a href="images/work_18.png" data-lightbox="example-set" data-title="<strong>DjVista</strong> <br> 블루코어 &nbsp; l &nbsp; 2012 <br> 개방형 파일포맷인 Djvu 포맷 인코딩 기술을 기반으로 한 모바일 문서 뷰어"><img src="images/work_18.png" alt="work img"></a></li>
+                                <li><a href="images/work_19.png" data-lightbox="example-set" data-title="<strong>Djvu Mobile SDK & Library</strong> <br> Caminova &nbsp; l &nbsp; 2012 <br> 日本 Caminova社 Mobile Djvu SDK 및 Library 공급"><img src="images/work_19.png" alt="work img"></a></li>
+                                <li><a href="images/work_21.png" data-lightbox="example-set" data-title="<strong>국가교통DB 홈페이지</strong> <br> 한국교통연구원 &nbsp; l &nbsp; 2012 <br> KOTI 「2012년도 국가교통수요조사 및 DB 구축사업」 중 국가교통DB 홈페이지 개발"><img src="images/work_21.png" alt="work img"></a></li>
+                                <li><a href="images/work_22.png" data-lightbox="example-set" data-title="<strong>#메일 App 및 클라우드 서비스 개발</strong> <br> 이파피루스 &nbsp; l &nbsp; 2012 <br> NIPA #메일 비즈니스 시범사업 중 스마트카운트 모바일 #메일 APP개발 및 클라우드 서비스 개발"><img src="images/work_22.png" alt="work img"></a></li>
+                                <li><a href="images/work_23.png" data-lightbox="example-set" data-title="<strong>SKT MypowderRoom</strong> <br> SK텔레콤 &nbsp; l &nbsp; 2010, 2011 <br> Face Recognition기반 헤어 및 메이크업 서비스"><img src="images/work_23.png" alt="work img"></a></li>
+                                <li><a href="images/work_24.png" data-lightbox="example-set" data-title="<strong>Design QR Platform</strong> <br> SK텔레콤 &nbsp; l &nbsp; 2011 <br> SKT 브랜드 홍보를 위한 Design Qrcode Platform 구축"><img src="images/work_24.png" alt="work img"></a></li>
+                                <li><a href="images/work_25.png" data-lightbox="example-set" data-title="<strong>SPY Tlak</strong> <br> 블루코어 &nbsp; l &nbsp; 2011 <br> 사용자가 보내는 메시지를 대상, 시간, 횟수 등으로 제한하여 보여줘 사용자 개인정보의 안정성에 재미요소를 더한 메시지 서비스"><img src="images/work_25.png" alt="work img"></a></li>
+                                <li><a href="images/work_26.png" data-lightbox="example-set" data-title="<strong>감성아바타</strong> <br> 블루코어 &nbsp; l &nbsp; 2011 <br> 사용자의 표정을 인식해 사용자의 감정을 다양한 아바타를 이용해서 표현하는 애플리케이션"><img src="images/work_26.png" alt="work img"></a></li>
+                                <li><a href="images/work_27.png" data-lightbox="example-set" data-title="<strong>객체인식 검색 솔루션</strong> <br> 블루코어 &nbsp; l &nbsp; 2011 <br> 도서 표지, 음반 앨범 등의 객체를 인식하여 서버상에 있는 데이터와 비교해 해당 콘텐츠를 빠르게 찾을 수 있도록 해주는 솔루션"><img src="images/work_27.png" alt="work img"></a></li>
+                                <li><a href="images/work_28.png" data-lightbox="example-set" data-title="<strong>안드로이드 자가 보안점검 App</strong> <br> KISA &nbsp; l &nbsp; 2011 <br> 안드로이드폰OS 애플리케이션에 대한 보안 취약점을 점검하여 조치 방안 제시를 통해 이용자가 안심하고 스마트폰을 사용할 수 있도록 해주는 애플리케이션"><img src="images/work_28.png" alt="work img"></a></li>
+                                <li><a href="images/work_29.png" data-lightbox="example-set" data-title="<strong>패스워드 자가진단</strong> <br> 한국인터넷진흥원 &nbsp; l &nbsp; 2010 <br> 스마트폰에서 회원가입 시 패스워드 설정 또는 변경 시, 입력한 패스워드의 안정성을 확인 할 수 있는 애플리케이션"><img src="images/work_29.png" alt="work img"></a></li>
+                                <li><a href="images/work_30.png" data-lightbox="example-set" data-title="<strong>가격비교 서비스 개발</strong> <br> 커머스플래닛 &nbsp; l &nbsp; 2010 <br> 바코드 및 음성인식을 통하여 온라인 쇼핑몰에 있는 제품들의 가격을 비교하여 사용자가 가장 저렴한 상품을 추천해 주는 애플리케이션"><img src="images/work_30.png" alt="work img"></a></li>
+                                <li><a href="images/work_31.png" data-lightbox="example-set" data-title="<strong>출입통제 시스템 구축</strong> <br> 서울메트로 &nbsp; l &nbsp; 2009 <br> 서울메트로 건물출입통제를 위한 방문자 예약관리 시스템"><img src="images/work_31.png" alt="work img"></li>
+                            </ul>
+                        </div>
+                        <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                        <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+                    </div>
+                </div>
+                
+                
+                 <!--mobile -->
+                 <div class="works_wrapper_m">
+                    <div class="jcarousel-wrapper">
+                        <div class="jcarousel">
+                            <ul>
+                                <li><a href="images/work_01.png" data-lightbox="example-set" data-title="<strong>T cloud 3.0 개발</strong> <br> SK플래닛 &nbsp; l &nbsp; 2013 <br> SKP T cloud 3.0 Web, iPhone, iPad 클라이언트 개발"></a><img src="images/work_01.png" alt="work img"></li>                
+                                <li><a href="images/work_02.png" data-lightbox="example-set" data-title="<strong>T cloud 2.0 개발 유지보수</strong> <br> SK플래닛 &nbsp; l &nbsp; 2013 <br> SKP T cloud 2.0 서버 및 클라이언트 고도화 및 유지보수"></a><img src="images/work_02.png" alt="work img"></li>
+                                <li><a href="images/work_03.png" data-lightbox="example-set" data-title="<strong>SMS 서비스인프라 유지보수</strong> <br> KT &nbsp; l &nbsp; 2012, 2013 <br> KT 주요 서비스인 SMS(Short Message Service) 서비스 개발 유지보수"></a><img src="images/work_03.png" alt="work img"></li>
+                                <li><a href="images/work_04.png" data-lightbox="example-set" data-title="<strong>MMSC 개발유지보</strong>수 <br> KT &nbsp; l &nbsp; 2012, 2013 <br> SKP T cloud 2.0 서버 및 클라이언트 고도화 및 유지보수"></a><img src="images/work_04.png" alt="work img"></li>
+                                <li><a href="images/work_05.png" data-lightbox="example-set" data-title="<strong>MSFP 유지보수</strong> <br> KT &nbsp; l &nbsp; 2012, 2013 <br> KT MSFP(Message Spam Filtering Platform) 개발 유지보수"></a><img src="images/work_05.png" alt="work img"></li>
+                                <li><a href="images/work_06.png" data-lightbox="example-set" data-title="<strong>대고객 메시지 통합 발송시스템(nMIMO)</strong> <br> KT &nbsp; l &nbsp; 2013 <br> KT 대고객 메시지 통합 발송시스템(nMIMO) 개발 유지보수"></a><img src="images/work_06.png" alt="work img"></li>
+                                <li><a href="images/work_10.png" data-lightbox="example-set" data-title="<strong>KT Messaging ARS</strong> <br> KT &nbsp; l &nbsp; 2013 <br> KT 문자고객센터 서비스(Messaging ARS Platform) 개발"></a><img src="images/work_10.png" alt="work img"></li>
+                                <li><a href="images/work_12.png" data-lightbox="example-set" data-title="<strong>올레 폰찾고정보보호</strong> <br> KT &nbsp; l &nbsp; 2013, 2014 <br> 스마트폰을 분실했을 경우 위치를 추적하고 개인정보 유출을 방지하며, 백업을 통해 중요 정보를 보호해 주는 서비스입니다. <br> 주요기능 : 현재 상태 확인, 임시잠금 및 분실잠금, 경고음 발생, 위치찾기 및 위치 추적, 사진 촬영-데이터 삭제 및 초기화, 백업 및 복원 (프리미엄 부가서비스 기능)"></a><img src="images/work_12.png" alt="work img"></li>
+                                <li><a href="images/work_13.png" data-lightbox="example-set" data-title="<strong>KT olleh Spam</strong> <br> KT &nbsp; l &nbsp; 2012, 2013 <br> KT Olleh 고객을 대상 스팸문자 차단 애플리케이션 서비스(Android, iPhone)"></a><img src="images/work_13.png" alt="work img"></li>
+                                <li><a href="images/work_07.png" data-lightbox="example-set" data-title="<strong>SoundForest</strong> <br> 블루코어 &nbsp; l &nbsp; 2015 <br> 휴식이나 숙면 또는 업무나 공부를 위한 집중력 향상에 도움을 주는 사운드테라피를 제공합니다. 사운드블렌딩 기능을 통해 자신의 취향에 맞는 다양한 사운드테라피를 만들 수 있으며, 이명환자들을 위한 치료용 mp3 플레이어 기능을 제공하여 이명치료에 도움을 드립니다."></a><img src="images/work_07.png" alt="work img"></li>
+                                <li><a href="images/work_08.png" data-lightbox="example-set" data-title="<strong>SoundForest</strong> <br> 블루코어 &nbsp; l &nbsp; 2013 <br> 사운드 테라피(Sound Therapy)를 통한 모바일 개인화 소리치료 애플리케이션은 사용자의 음원에 대한 데이터를 분석하고 관리하며, 음원 정보 분석 데이터를 통해서 사용자 개개인의 특성에 맞는 음원을 제공하는 서비스입니다."></a><img src="images/work_08.png" alt="work img"></li>
+                                <li><a href="images/work_11.png" data-lightbox="example-set" data-title="<strong>#메일 기반 전자문서 유통 유무선 포털</strong> <br> SK텔레콤 &nbsp; l &nbsp; 2013 <br> SKT #메일을 기반으로한 전자문서 유통을 위한 포털 서비스 개발"></a><img src="images/work_11.png" alt="work img"></li>
+                                <li><a href="images/work_09.png" data-lightbox="example-set" data-title="<strong>자가용 이용실태 조사 서비스</strong> <br> 한국교통연구원 &nbsp; l &nbsp; 2013 <br> 한국교통연구원 국내 자가용 이용자 실태 조사 애플리케이션은 모바일 환경에서 스마트폰을 이용하여 자가용 운행 기록을 수집하고, 수집된 데이터를 이용하여 통계 및 교통부문 DB구축 등 다양한 부문에 활용할 수 있도록 구축된 서비스입니다."></a><img src="images/work_09.png" alt="work img"></li>
+                                <li><a href="images/work_20.png" data-lightbox="example-set" data-title="<strong>Ucloud PC Client 개발</strong> <br> KT &nbsp; l &nbsp; 2012 <br> KT 클라우드 서비스(Ucloud) PC Client 개발"></a><img src="images/work_20.png" alt="work img"></li>
+                                <li><a href="images/work_14.png" data-lightbox="example-set" data-title="<strong>K-Collection</strong> <br> SBS &nbsp; l &nbsp; 2012 <br> SBS K-Collection in Seoul은 K-POP 스타, 모델, IT, 패션쇼가 결합된 엔터테인먼트 형식의 초대형 이벤트로 개발"></a><img src="images/work_14.png" alt="work img"></li>
+                                <li><a href="images/work_15.png" data-lightbox="example-set" data-title="<strong>전자문서 비즈니스 모델 시범사업</strong> <br> 정보통신산업진흥원 &nbsp; l &nbsp; 2013 <br> NIPA 전자문서 비즈니스 모델 시범사업으로 #메일을 기반으로한 전자문서 유통 포털 서비스 개발"></a><img src="images/work_15.png" alt="work img"></li>
+                                <li><a href="images/work_16.png" data-lightbox="example-set" data-title="<strong>KISA PhoneKeeper</strong> <br> 한국인터넷진흥원 &nbsp; l &nbsp; 2012 <br> 국내 Android 사용자를 위한 편리하고 안전한 보안 설정 애플리케이션"></a><img src="images/work_16.png" alt="work img"></li>
+                                <li><a href="images/work_17.png" data-lightbox="example-set" data-title="<strong>Coreview</strong> <br> 블루코어 &nbsp; l &nbsp; 2012 <br> 모바일 환경에서 안전하게 문서를 유통할 수 있는 통한 문서 스트리밍 솔루션"></a><img src="images/work_17.png" alt="work img"></li>
+                                <li><a href="images/work_18.png" data-lightbox="example-set" data-title="<strong>DjVista</strong> <br> 블루코어 &nbsp; l &nbsp; 2012 <br> 개방형 파일포맷인 Djvu 포맷 인코딩 기술을 기반으로 한 모바일 문서 뷰어"></a><img src="images/work_18.png" alt="work img"></li>
+                                <li><a href="images/work_19.png" data-lightbox="example-set" data-title="<strong>Djvu Mobile SDK & Library</strong> <br> Caminova &nbsp; l &nbsp; 2012 <br> 日本 Caminova社 Mobile Djvu SDK 및 Library 공급"></a><img src="images/work_19.png" alt="work img"></li>
+                                <li><a href="images/work_21.png" data-lightbox="example-set" data-title="<strong>국가교통DB 홈페이지</strong> <br> 한국교통연구원 &nbsp; l &nbsp; 2012 <br> KOTI 「2012년도 국가교통수요조사 및 DB 구축사업」 중 국가교통DB 홈페이지 개발"></a><img src="images/work_21.png" alt="work img"></li>
+                                <li><a href="images/work_22.png" data-lightbox="example-set" data-title="<strong>#메일 App 및 클라우드 서비스 개발</strong> <br> 이파피루스 &nbsp; l &nbsp; 2012 <br> NIPA #메일 비즈니스 시범사업 중 스마트카운트 모바일 #메일 APP개발 및 클라우드 서비스 개발"></a><img src="images/work_22.png" alt="work img"></li>
+                                <li><a href="images/work_23.png" data-lightbox="example-set" data-title="<strong>SKT MypowderRoom</strong> <br> SK텔레콤 &nbsp; l &nbsp; 2010, 2011 <br> Face Recognition기반 헤어 및 메이크업 서비스"></a><img src="images/work_23.png" alt="work img"></li>
+                                <li><a href="images/work_24.png" data-lightbox="example-set" data-title="<strong>Design QR Platform</strong> <br> SK텔레콤 &nbsp; l &nbsp; 2011 <br> SKT 브랜드 홍보를 위한 Design Qrcode Platform 구축"></a><img src="images/work_24.png" alt="work img"></li>
+                                <li><a href="images/work_25.png" data-lightbox="example-set" data-title="<strong>SPY Tlak</strong> <br> 블루코어 &nbsp; l &nbsp; 2011 <br> 사용자가 보내는 메시지를 대상, 시간, 횟수 등으로 제한하여 보여줘 사용자 개인정보의 안정성에 재미요소를 더한 메시지 서비스"></a><img src="images/work_25.png" alt="work img"></li>
+                                <li><a href="images/work_26.png" data-lightbox="example-set" data-title="<strong>감성아바타</strong> <br> 블루코어 &nbsp; l &nbsp; 2011 <br> 사용자의 표정을 인식해 사용자의 감정을 다양한 아바타를 이용해서 표현하는 애플리케이션"></a><img src="images/work_26.png" alt="work img"></li>
+                                <li><a href="images/work_27.png" data-lightbox="example-set" data-title="<strong>객체인식 검색 솔루션</strong> <br> 블루코어 &nbsp; l &nbsp; 2011 <br> 도서 표지, 음반 앨범 등의 객체를 인식하여 서버상에 있는 데이터와 비교해 해당 콘텐츠를 빠르게 찾을 수 있도록 해주는 솔루션"></a><img src="images/work_27.png" alt="work img"></li>
+                                <li><a href="images/work_28.png" data-lightbox="example-set" data-title="<strong>안드로이드 자가 보안점검 App</strong> <br> KISA &nbsp; l &nbsp; 2011 <br> 안드로이드폰OS 애플리케이션에 대한 보안 취약점을 점검하여 조치 방안 제시를 통해 이용자가 안심하고 스마트폰을 사용할 수 있도록 해주는 애플리케이션"></a><img src="images/work_28.png" alt="work img"></li>
+                                <li><a href="images/work_29.png" data-lightbox="example-set" data-title="<strong>패스워드 자가진단</strong> <br> 한국인터넷진흥원 &nbsp; l &nbsp; 2010 <br> 스마트폰에서 회원가입 시 패스워드 설정 또는 변경 시, 입력한 패스워드의 안정성을 확인 할 수 있는 애플리케이션"></a><img src="images/work_29.png" alt="work img"></li>
+                                <li><a href="images/work_30.png" data-lightbox="example-set" data-title="<strong>가격비교 서비스 개발</strong> <br> 커머스플래닛 &nbsp; l &nbsp; 2010 <br> 바코드 및 음성인식을 통하여 온라인 쇼핑몰에 있는 제품들의 가격을 비교하여 사용자가 가장 저렴한 상품을 추천해 주는 애플리케이션"></a><img src="images/work_30.png" alt="work img"></li>
+                                <li><a href="images/work_31.png" data-lightbox="example-set" data-title="<strong>출입통제 시스템 구축</strong> <br> 서울메트로 &nbsp; l &nbsp; 2009 <br> 서울메트로 건물출입통제를 위한 방문자 예약관리 시스템"></a><img src="images/work_31.png" alt="work img"></li>
+                                
+                            </ul>
+                        </div>
+                        <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                        <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+                    </div>
+                </div>
+				<a href="works.html" target="_blank" class="button">전체보기</a>
+            </div>
+            
+            <div id="menu5">
+            	<div>
+                    <h2>RECRUIT</h2>
+                    <p>세상을 보는 넓은 시야와 통찰력을 갖춘 창의적인 인재를 기다립니다.</p>
+                </div>
+                <div class="recruit">
+                    <ul>
+                        <li><p>CREATIVITY</p></li>
+                        <li><p>PROFESSIONAL</p></li>
+                        <li><p>PASSION</p></li>
+                    </ul>
+                </div>
+                <a href="recruit.html" target="_blank" class="button">입사지원하기</a>
+            </div>
+			
+            
+            <div id="menu6">
+                <a href="https://www.google.co.kr/maps/place/(주)블루코어/@37.509679,127.042529,15z/data=!4m2!3m1!1s0x0:0x2eacd2133b32549a" target="_blank"><div id="map_canvas"> &nbsp; </div></a>
+                <div id="contact">
+                    <h2>블루코어</h2>
+                    <p>서울시 강남구 봉은사로(역삼동) 326 남전빌딩 4층, 135-080</p>
+                    <div class="tel">
+                        <ul>
+                            <li>
+                            	<span class="contact_txt02">TEL / </span>02. 508. 2952<br>
+                                <span class="contact_txt02">FAX / </span>02. 508. 2953<br>
+                                <span class="contact_txt02">EMAIL / </span>contact@blue-core.com
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="subway">
+                        <ul>
+                            <li>
+                            	<span class="contact_txt01">지하철</span><br>
+                                <span class="contact_txt03">분당선</span> 선정릉역(4번출구) 하차시 도보로 2분거리<br>
+                                <span class="contact_txt04">2호선</span> 선릉역(7번출구) 하차시 도보로 10분거리<br>
+                                <span class="contact_txt05">7호선</span> 강남구청역(2번출구) 하차시 도보로 10분거리</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bus">
+                        <ul>
+                            <li>
+                            	<span class="contact_txt01">버스</span><br>
+                                <span class="contact_txt02">삼릉공원사거리 : 6411번, 3412번<br>
+								무형문화재전수회관 : 472번, 3219번, 4412번, 강남07번</span>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div id="menu7">
+            	<div class="sitemap">
+                    <ul>
+                        <li>
+                            <a href="#menu2"><span class="sitemap_txt01">INFORMATION</span></a><br>
+                            <a href="info_about.html" target="_blank"><span class="sitemap_txt02">about</span></a><br>
+                            <a href="info_history.html" target="_blank"><span class="sitemap_txt02">history</span></a><br>
+                            <a href="info_organization.html" target="_blank"><span class="sitemap_txt02">organization</span></a><br>
+                            <a href="info_partner.html" target="_blank"><span class="sitemap_txt02">partner</span> </a>
+                        </li>
+                        <li>
+                            <a href="#menu3"><span class="sitemap_txt01">BUSINESS</span></a><br>
+                            <a href="business.html" target="_blank"><span class="sitemap_txt02">solution Development</span></a> <br>
+                            <a href="business.html" target="_blank"><span class="sitemap_txt02">platform Operation</span></a> <br>
+                            <a href="business.html" target="_blank"><span class="sitemap_txt02">mobile SI</span></a> 
+                            
+                        </li>
+                        <li>
+                            <a href="#menu4"><span class="sitemap_txt01">WORKS</span></a><br>
+                            <a href="works.html" target="_blank"><span class="sitemap_txt02">Works</span></a>
+                        </li>
+                        <li>
+                            <a href="#menu5"><span class="sitemap_txt01">RECRUIT</span></a><br>
+                            <a href="recruit.html" target="_blank"><span class="sitemap_txt02">recruit</span></a> 
+                        </li>
+                        <li>
+                            <a href="#menu6"><span class="sitemap_txt01">CONTACT</span></a><br>
+                            <a href="#menu6"><span class="sitemap_txt02">contact</span></a> 
+                        </li>
+                    </ul>
+            	</div>
+            </div>
+            <div id="footer_link">
+                <ul>
+                    <a href="http://www.soundforest.co.kr/" target="_blank" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image68','','images/footer_link_sou_ov.png',1)"><img src="images/footer_link_sou.png"  class="footer_link_sou" name="Image68" border="0" alt="SoundForest"></a> 
+                    <a href="http://www.coreview.kr/" target="_blank"  onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image69','','images/footer_link_cor_ov.png',1)"><img src="images/footer_link_cor.png" class="footer_link_cor" name="Image69" border="0" alt="coreview"></a>
+                </ul>
+          </div>
+            <div id="footer_top">
+                <ul>
+                    <li class="top"><a href="#">TOP▲</a></li>
+                </ul>
+            </div>
+            <div id="copyright">
+                <ul>
+                    <li class="copy">Copyright ⓒ 2015 Bluecore All Rights Reseved</li>
+                </ul>
+            </div>
+               
+                
+            
+            
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="js/lightbox-plus-jquery.min.js"></script>
+    
+</body>	
+</html>
+
+
+
+
+
+
+
+
+
